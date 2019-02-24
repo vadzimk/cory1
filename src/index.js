@@ -1,12 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom"
+import Home from "./components/Home";
+import About from "./components/about/AboutPage"
+import Header from "./components/common/Header";
+import Authors from "./components/authors/AuthorPage";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends React.Component{
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    render() {
+
+        let Child;
+        switch (this.props.route) {
+            case "about": Child=About;
+            break;
+            case "authors": Child=Authors;
+            break;
+            default: Child=Home;
+        }
+        return (
+            <div>
+                <Header/>
+                <Child/>
+            </div>
+        );
+    }
+}
+
+function render(){
+    let route = window.location.hash.substring(1);
+    ReactDOM.render(<App route={route}/>, document.querySelector("#root"));
+}
+window.addEventListener("hashchange", render);
+render();
+
