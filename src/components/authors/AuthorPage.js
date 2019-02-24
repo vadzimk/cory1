@@ -1,5 +1,6 @@
 import React from "react";
 import AuthorApi from "../api/AuthorApi";
+import AuthorList from "./AuthorList";
 
 class Authors extends React.Component{
     constructor(props){
@@ -8,7 +9,6 @@ class Authors extends React.Component{
         this.state = {
             authors: []
         }
-
     }
     //get data from api
  fetchAuthors = async()=>{
@@ -20,7 +20,7 @@ class Authors extends React.Component{
 
 };
 
-    componentWillMount(){
+    componentDidMount(){
     this.fetchAuthors();
     }
 
@@ -28,25 +28,7 @@ class Authors extends React.Component{
 
         return (
             <div>
-                <h2>Authors</h2>
-                <table className="table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Website</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.authors.map((authorObj)=>{
-                        return (
-                            <tr key={authorObj.id}>
-                                <td>{authorObj.name}</td>
-                                <td><a href={authorObj.website}>{authorObj.website}</a></td>
-                            </tr>
-                        );
-                    })}
-                    </tbody>
-                </table>
+               <AuthorList authors={this.state.authors}/>
             </div>
         );
     }
