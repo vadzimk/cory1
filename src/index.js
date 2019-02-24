@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
 import Home from "./components/Home";
 import About from "./components/about/AboutPage"
 import Header from "./components/common/Header";
-import Authors from "./components/authors/AuthorPage";
+import AuthorPage from "./components/authors/AuthorPage";
 
 class App extends React.Component{
 
@@ -13,7 +13,7 @@ class App extends React.Component{
         switch (this.props.route) {
             case "about": Child=About;
             break;
-            case "authors": Child=Authors;
+            case "authors": Child=AuthorPage;
             break;
             default: Child=Home;
         }

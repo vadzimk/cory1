@@ -2,7 +2,7 @@ import React from "react";
 import AuthorApi from "../api/AuthorApi";
 import AuthorList from "./AuthorList";
 
-class Authors extends React.Component{
+class AuthorPage extends React.Component{
     constructor(props){
         super(props);
 
@@ -10,6 +10,7 @@ class Authors extends React.Component{
             authors: []
         }
     }
+
     //get data from api
  fetchAuthors = async()=>{
     const response = await AuthorApi.get("/users");
@@ -34,4 +35,4 @@ class Authors extends React.Component{
     }
 }
 
-export default Authors;
+export default AuthorPage;

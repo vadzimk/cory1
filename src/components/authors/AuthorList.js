@@ -11,6 +11,8 @@ const AuthorList = ({authors})=>{
         );
     };
 
+
+
     return (
         <div>
             <h2>Authors</h2>
@@ -28,5 +30,10 @@ const AuthorList = ({authors})=>{
         </div>
     );
 };
+
+//prop validation doesn't work for some reason
+// AuthorList.propTypes = {
+//     authors: React.PropTypes.array.isRequired
+// };
 
 export default AuthorList;
